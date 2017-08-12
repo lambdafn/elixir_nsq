@@ -2,8 +2,8 @@ defmodule ElixirNsq.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :elixir_nsq,
-     version: "1.0.3",
+    [app: :ex_nsq,
+     version: "1.1.0",
      elixir: "~> 1.1",
      description: description(),
      package: package(),
@@ -35,29 +35,35 @@ defmodule ElixirNsq.Mixfile do
       {:httpotion, "~> 2.1.0"},
       {:uuid, "~> 1.1.2"},
       {:socket, "~> 0.3.1"},
+      {:ex_doc, ">= 0.0.0", only: :dev},
+
 
       # testing
       {:secure_random, "~> 0.2", only: :test},
 
       # Small HTTP server for running tests
-      {:http_server, github: "parroty/http_server"},
+      {:http_server, github: "parroty/http_server", only: :test},
     ]
   end
 
   defp description do
     """
-    A client library for NSQ, `elixir_nsq` aims to be complete, easy to use,
-    and well tested. Developed at Wistia (http://wistia.com).
+    A client library for NSQ, `ex_nsq` aims to be complete, easy to use,
+    and well tested.
+
+    Originally developed at Wistia (http://wistia.com) as `elixir_nsq`,
+    `ex_nsq` was forked to make a version with merged PRs and updated
+    dependencies available on Hex.pm for other projects to depend upon.
     """
   end
 
   defp package do
     [
-      files: ["lib", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
-      maintainers: ["Max Schnur (max@wistia.com)"],
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["Mike Clarke"],
       licenses: ["MIT"],
       links: %{
-        "GitHub" => "https://github.com/wistia/elixir_nsq"
+        "GitHub" => "https://github.com/lambdafn/ex_nsq"
       },
     ]
   end
